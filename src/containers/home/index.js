@@ -1,6 +1,7 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { Actions } from 'react-native-router-flux'
+import { Button, View, Text, StyleSheet } from 'react-native';
 
 // create a component
 class Home extends Component {
@@ -8,6 +9,11 @@ class Home extends Component {
     return (
       <View style={styles.container}>
         <Text>Home</Text>
+        <Button
+          onPress={()=>Actions.colors()}
+          title="Colors"
+          color="red"
+          accessibilityLabel="Learn more about this purple button"/>
       </View>
     );
   }
@@ -17,7 +23,6 @@ class Home extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
   },
 });
