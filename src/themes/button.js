@@ -58,7 +58,7 @@ export const buttonSize = {
 }
 
 const baseTextButtonStyle = {
-  fontFamily: FONT_FAMILY_STYLE.medium,
+  //fontFamily: FONT_FAMILY_STYLE.medium,
   paddingTop: Platform.OS === 'ios' ? 3 : -5,
   textAlign: 'center',
 }
