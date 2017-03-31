@@ -1,34 +1,30 @@
 module.exports = function (grunt) {
 
+  grunt.loadNpmTasks('grunt-babel')
+  grunt.loadNpmTasks('grunt-contrib-concat')
+
   grunt.initConfig({
-    pkg: '<json:package.json>',
-    concat: {
+    babel: {
+      options: {
+        sourceMap: true,
+        inputSourceMap: grunt.file.readJSON('dist/script.js.map')
+      },
       dist: {
-        src: 'src/components/*.js',
-        dest: 'dist/js/app.js'
+        files: {
+          'dist/js/app.js': 'dist/script.js'
+        }
       }
     },
-    babel: {
-        options: {
-            sourceMap: true,
-            presets: ['babel-preset-es2015']
-        },
-        dist: {
-            files: {
-                'dist/js/app.js': 'dist/app.js'
-            }
-        }
-    },
-    min: {
-      dist: {
-        src: 'dist/js/app.js',
-        dest: 'dist/js/app.min.js'
+    concat: {
+      options: {
+        sourceMap: true
+      },
+      js: {
+        src: ['src/components/**/*.js'],
+        dest: 'dist/script.js'
       }
     },
   });
 
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-
-  grunt.registerTask('default', 'concat min');
+  grunt.registerTask('default', ['concat', 'babel'])
 };
