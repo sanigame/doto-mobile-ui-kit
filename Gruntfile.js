@@ -6,13 +6,17 @@ module.exports = function (grunt) {
   grunt.initConfig({
     babel: {
       options: {
-        sourceMap: true,
-        inputSourceMap: grunt.file.readJSON('dist/script.js.map')
+        sourceMap: true
       },
       dist: {
-        files: {
-          'dist/js/app.js': 'dist/script.js'
-        }
+        files: [
+          {
+            expand: true,
+            cwd: 'src/components/buttons/',
+            src: ['**/*.js'],
+            dest: 'dist/build/'
+          }
+        ]
       }
     },
     concat: {
@@ -20,11 +24,11 @@ module.exports = function (grunt) {
         sourceMap: true
       },
       js: {
-        src: ['src/components/**/*.js'],
+        src: ['dist/build/**/*.js'],
         dest: 'dist/script.js'
       }
     },
   });
 
-  grunt.registerTask('default', ['concat', 'babel'])
+  grunt.registerTask('default', ['babel', 'concat'])
 };
