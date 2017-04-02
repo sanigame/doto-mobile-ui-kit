@@ -4,7 +4,7 @@ import { Actions } from 'react-native-router-flux'
 import { Button, View, Text, StyleSheet } from 'react-native';
 
 // create a component
-class Home extends Component {
+class HomePage extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -12,8 +12,11 @@ class Home extends Component {
         <Button
           onPress={()=>Actions.colors()}
           title="Colors"
-          color="red"
-          accessibilityLabel="Learn more about this purple button"/>
+          color="red"/>
+        <Button
+          onPress={()=>Actions.buttons()}
+          title="Buttons"
+          color="blue"/>
       </View>
     );
   }
@@ -28,4 +31,4 @@ const styles = StyleSheet.create({
 });
 
 //make this component available to the app
-export default Home;
+export default HomePage;
