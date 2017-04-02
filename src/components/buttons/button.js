@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
-import withButton from './withButton'
-import Icon from '../../components/icon'
+import { ButtonContainer } from '../../containers';
+import Icon from '../icon'
 
 const styles = StyleSheet.create({
   wrapperContent: {
@@ -94,4 +94,4 @@ button.propTypes = {
   textStyle: React.PropTypes.array,
 }
 
-export default withButton()(button)
+export default ButtonContainer()(button)
