@@ -8,6 +8,7 @@
     "grunt-babel": "^6.0.0",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
     "jest-expo": "^0.3.0",
     "load-grunt-tasks": "^3.5.2",
     "react-native-scripts": "0.0.26",

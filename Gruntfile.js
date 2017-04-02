@@ -3,6 +3,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-babel')
   grunt.loadNpmTasks('grunt-contrib-clean')
   grunt.loadNpmTasks('grunt-contrib-concat')
+  grunt.loadNpmTasks('grunt-contrib-copy')
 
   grunt.initConfig({
     babel: {
@@ -25,12 +26,18 @@ module.exports = function (grunt) {
             cwd: 'src/components/',
             src: ['**/*.js'],
             dest: 'dist/build/components/'
+          },
+          {
+            expand: true,
+            cwd: 'src/themes/',
+            src: ['**/*.js'],
+            dest: 'dist/build/themes/'
           }
         ]
       }
     },
     clean: {
-      folder: ['dist/']
+      folder: ['dist/**/']
     },
     concat: {
       options: {
@@ -41,7 +48,14 @@ module.exports = function (grunt) {
         dest: 'dist/script.js'
       }
     },
+    copy: {
+      main: {
+        expand: true,
+        src: 'src/assets/*/',
+        dest: 'dist/build/assets/',
+      },
+    },
   });
 
-  grunt.registerTask('default', ['clean', 'babel'])
+  grunt.registerTask('default', ['clean', 'babel', 'copy'])
 };
