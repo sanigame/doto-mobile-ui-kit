@@ -1,6 +1,7 @@
 module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-babel')
+  grunt.loadNpmTasks('grunt-contrib-clean')
   grunt.loadNpmTasks('grunt-contrib-concat')
 
   grunt.initConfig({
@@ -11,13 +12,25 @@ module.exports = function (grunt) {
       dist: {
         files: [
           {
+            'dist/build/app.js': 'src/app.js'
+          },
+          {
             expand: true,
-            cwd: 'src/components/buttons/',
+            cwd: 'src/containers/',
             src: ['**/*.js'],
-            dest: 'dist/build/'
+            dest: 'dist/build/containers/'
+          },
+          {
+            expand: true,
+            cwd: 'src/components/',
+            src: ['**/*.js'],
+            dest: 'dist/build/components/'
           }
         ]
       }
+    },
+    clean: {
+      folder: ['dist/']
     },
     concat: {
       options: {
@@ -30,5 +43,5 @@ module.exports = function (grunt) {
     },
   });
 
-  grunt.registerTask('default', ['babel', 'concat'])
+  grunt.registerTask('default', ['clean', 'babel'])
 };
