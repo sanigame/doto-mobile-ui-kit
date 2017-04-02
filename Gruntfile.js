@@ -12,46 +12,38 @@ module.exports = function (grunt) {
       dist: {
         files: [
           {
-            'dist/build/app.js': 'src/app.js'
+            'lib/index.js': 'src/app.js'
           },
           {
             expand: true,
             cwd: 'src/containers/',
             src: ['**/*.js'],
-            dest: 'dist/build/containers/'
+            dest: 'lib/containers/'
           },
           {
             expand: true,
             cwd: 'src/components/',
             src: ['**/*.js'],
-            dest: 'dist/build/components/'
+            dest: 'lib/components/'
           },
           {
             expand: true,
             cwd: 'src/themes/',
             src: ['**/*.js'],
-            dest: 'dist/build/themes/'
+            dest: 'lib/themes/'
           }
         ]
       }
     },
     clean: {
-      folder: ['dist/**/']
-    },
-    concat: {
-      options: {
-        sourceMap: true
-      },
-      js: {
-        src: ['dist/build/**/*.js'],
-        dest: 'dist/script.js'
-      }
+      folder: ['lib/**/']
     },
     copy: {
       main: {
         expand: true,
-        src: 'src/assets/*/',
-        dest: 'dist/build/assets/',
+        cwd: 'src/assets/',
+        src: '**',
+        dest: 'lib/assets/',
       },
     },
   });
