@@ -1,1 +1,1 @@
-export { default as Button } from './components'
+export { Button, Icon } from './components'
