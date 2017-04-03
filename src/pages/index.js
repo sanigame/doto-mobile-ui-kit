@@ -1,3 +1,4 @@
-export { default as ButtonPage } from './buttonPage.js'
-export { default as ColorPage } from './colorPage.js'
-export { default as HomePage } from './homePage.js'
+export { default as ButtonPage } from './buttonPage'
+export { default as ColorPage } from './colorPage'
+export { default as HomePage } from './homePage'
+export { default as ExamplesPage } from './examplesPage'
