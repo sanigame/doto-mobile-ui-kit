@@ -1,114 +1,333 @@
 //import liraries
 import React, { Component } from 'react';
 import { ScrollView, StyleSheet, Text, View, Platform } from 'react-native';
-import { theme } from '../themes/theme';
-import { Button } from '../containers';
+import {
+  Button,
+  IconButton,
+  Icon
+} from '../app';
 
 // create a component
 class ButtonPage extends Component {
 
-  state = {
-    isOnPressing: false
-  }
-
   render() {
-
-    let onPressProps;
-    if (this.state.isOnPressing) {
-      onPressProps = styles.buttonStylePressing
-    } else {
-      onPressProps = styles.buttonStyle1
-    }
+    const buttonType = ['default', 'flat', 'outLine', 'flatTransparent', 'outLineTransparent', 'transparent']
 
     return (
-      <ScrollView>
-        <View style={styles.container}>
-          <Button>
-            Hello
-          </Button>
+      <ScrollView style={{ backgroundColor: '#dfdfdf', padding: 10}}>
+        <View style={{ backgroundColor: '#ffffff', flexDirection: 'column', justifyContent: 'space-between', flex: 1, minHeight: 100, borderRadius: 3, padding: 5, marginBottom: 15 }}>
           <Button
-            size="xs"
-            theme={theme.primary}
-            onPress={() => {console.log('world!')}}>
-            Hello
-          </Button>
+            icon={'facebook'}
+            dark={true}
+            size={'lg'}
+            block
+            lineColor
+            title={'Continue with Facebook'}
+            theme={'facebook'}
+            onPress={() => { }}
+          />
+          <View style={{ height: 5 }} />
           <Button
-            size="sm"
-            theme={theme.primary}
-            onPress={() => {console.log('world!')}}>
-            Hello
-          </Button>
+            icon={'personWhite'}
+            size={'lg'}
+            block
+            lineColor
+            title={'Continue with Facebook'}
+            theme={'facebook'}
+            onPress={() => { }}
+          />
+          <View style={{ height: 5 }} />
           <Button
-            size="md"
-            theme={theme.primary}
-            onPress={() => {console.log('world!')}}>
-            Hello
-          </Button>
+            icon={'personBlack'}
+            size={'lg'}
+            block
+            lineColor
+            outLine
+            title={'Log in with Email'}
+            theme={'secondary2'}
+            onPress={() => { }}
+          />
+          <View style={{ height: 5 }} />
           <Button
-            size="lg"
-            theme={theme.primary}
-            onPress={() => {console.log('world!')}}>
-            Hello
-          </Button>
+            icon={'fingerPrint'}
+            size={'lg'}
+            block
+            lineColor
+            outLine
+            title={'Log in with Biometric'}
+            theme={'danger'}
+            onPress={() => { }}
+          />
+          <View style={{ height: 5 }} />
           <Button
-            style={styles.buttonStyle5} textStyle={styles.textStyle}
-            onPress={() => {
-              console.log('world!')
-            }}>
-            Hello
-          </Button>
+            icon={'plus'}
+            size={'xs'}
+            outLine
+            width={86}
+            title={'Follow'}
+            theme={'primary'}
+            onPress={() => { }}
+          />
+          <View style={{ height: 5 }} />
           <Button
-            style={styles.buttonStyle5} textStyle={styles.textStyle}
-            onPress={() => {
-              console.log('world!')
-            }}>
-            Hello
-        </Button>
+            icon={'check'}
+            size={'xs'}
+            outLine
+            active
+            width={120}
+            title={'Following'}
+            theme={'primary'}
+            onPress={() => { }}
+          />
+          <View style={{ height: 5 }} />
           <Button
-            style={styles.buttonStyle5} textStyle={styles.textStyle}
-            onPress={() => {
-              console.log('world!')
-            }}>
-            Hello
-          </Button>
-          <Button
-            style={styles.buttonStyle6} textStyle={styles.textStyle}
-            onPress={() => {
-              console.log('world!')
-            }}>
-            Hello
-          </Button>
-          <Button
-            style={styles.buttonStyle7} textStyle={styles.textStyle6}
-            onPress={() => {
-              console.log('world!')
-            }}>
-            Hello
-          </Button>
-          <Button
-            isLoading={true}
-            style={styles.buttonStyle7} textStyle={styles.textStyle6}
-            onPress={() => {
-              console.log('world!')
-            }}>
-            Hello
-          </Button>
-          <Button
-            disabledStyle={styles.buttonStyle8}
-            isDisabled={true}
-            textStyle={styles.textStyle8}>
-            Disabled
-          </Button>
-          <Button style={styles.buttonStyle8}
-            textStyle={styles.textStyle8}
-            onPress={() => console.log('world!')}>
-            <View style={styles.customViewStyle}>
-              <Text style={{ textAlign: 'center', fontFamily: 'Avenir' }}>
-                Custom inner view
-            </Text>
-            </View>
-          </Button>
+            icon={'check'}
+            size={'xs'}
+            outLine
+            width={200}
+            title={'Following'}
+            theme={'primary'}
+            onPress={() => { }}
+          />
+          <View style={{ height: 5 }} />
+          <IconButton size={'md'} icon={'facebook'} />
+          <View style={{ height: 5 }} />
         </View>
+        {
+          buttonType.map((value, key) => {
+            return (
+              <View key={key} style={{ backgroundColor: (value === 'flatTransparent') || (value === 'outLineTransparent') || (value === 'transparent') ? '#27ad5f' : '#ffffff', flexDirection: 'column', justifyContent: 'space-between', flex: 1, minHeight: 100, borderRadius: 3, padding: 5, marginBottom: 15 }}>
+                <Button
+                  {...{ [value]: true }}
+                  block
+                  icon={'personWhite'}
+                  dark={true}
+                  size={'lg'}
+                  title={'Button'}
+                  onPress={() => {}}
+                  />
+                <View style={{ height: 5 }} />
+                <Button
+                  {...{ [value]: true }}
+                  block
+                  iconRight={'personWhite'}
+                  dark={true}
+                  size={'lg'}
+                  title={'Button'}
+                  onPress={() => {}}
+                  />
+                <View style={{ height: 5 }} />
+                {
+                  value === 'default'
+                  ? <View>
+                    <Button
+                      {...{ [value]: true }}
+                      icon={'personWhite'}
+                      dark={true}
+                      lineColor
+                      size={'lg'}
+                      title={'Button'}
+                      onPress={() => {}}
+                      />
+                    <View style={{ height: 5 }} />
+                    <Button
+                      {...{ [value]: true }}
+                      iconRight={'personWhite'}
+                      dark={true}
+                      lineColorRight
+                      size={'lg'}
+                      title={'Button'}
+                      onPress={() => {}}
+                      />
+                    <View style={{ height: 5 }} />
+                    <Button
+                      {...{ [value]: true }}
+                      icon={'personWhite'}
+                      dark={true}
+                      size={'lg'}
+                      title={'Button'}
+                      onPress={() => {}}
+                      />
+                    <View style={{ height: 5 }} />
+                    <Button
+                      {...{ [value]: true }}
+                      iconRight={'personWhite'}
+                      dark={true}
+                      size={'lg'}
+                      title={'Button'}
+                      onPress={() => {}}
+                      />
+                    <View style={{ height: 5 }} />
+                    <Button
+                      {...{ [value]: true }}
+                      block
+                      iconRight={'personWhite'}
+                      width={200}
+                      active
+                      size={'lg'}
+                      title={'Button active'}
+                      />
+                    <View style={{ height: 5 }} />
+                  </View>
+                  : null
+                }
+                <View style={{ flexDirection: 'row', flex: 1, justifyContent: 'space-between' }} >
+                  <View>
+                    <Button
+                      {...{ [value]: true }}
+                      size={'xs'}
+                      title={'Button'}
+                      />
+                    <View style={{ height: 5 }} />
+                    <Button
+                      {...{ [value]: true }}
+                      size={'xs'}
+                      theme={'secondary'}
+                      title={'Button'}
+                      />
+                    <View style={{ height: 5 }} />
+                    <Button
+                      {...{ [value]: true }}
+                      icon={'personBlack'}
+                      size={'xs'}
+                      theme={'success'}
+                      title={'Button'}
+                      />
+                    <View style={{ height: 5 }} />
+                    <Button
+                      {...{ [value]: true }}
+                      icon={'personBlack'}
+                      lineColor
+                      size={'xs'}
+                      theme={'danger'}
+                      title={'Button'}
+                      />
+                    <View style={{ height: 5 }} />
+                    <Button
+                      {...{ [value]: true }}
+                      disabled
+                      size={'xs'}
+                      theme={'danger'}
+                      title={'Button'}
+                      />
+                    <View style={{ height: 5 }} />
+                  </View>
+                  <View>
+                    <Button
+                      {...{ [value]: true }}
+                      size={'sm'}
+                      title={'Button'}
+                      />
+                    <View style={{ height: 5 }} />
+                    <Button
+                      {...{ [value]: true }}
+                      size={'sm'}
+                      theme={'secondary'}
+                      title={'Button'}
+                      />
+                    <View style={{ height: 5 }} />
+                    <Button
+                      {...{ [value]: true }}
+                      size={'sm'}
+                      theme={'success'}
+                      title={'Button'}
+                      />
+                    <View style={{ height: 5 }} />
+                    <Button
+                      {...{ [value]: true }}
+                      size={'sm'}
+                      theme={'danger'}
+                      title={'Button'}
+                      />
+                    <View style={{ height: 5 }} />
+                    <Button
+                      {...{ [value]: true }}
+                      disabled
+                      size={'sm'}
+                      theme={'danger'}
+                      title={'Button'}
+                      />
+                    <View style={{ height: 5 }} />
+                  </View>
+                  <View>
+                    <Button
+                      {...{ [value]: true }}
+                      size={'md'}
+                      title={'Button'}
+                      />
+                    <View style={{ height: 5 }} />
+                    <Button
+                      {...{ [value]: true }}
+                      size={'md'}
+                      theme={'secondary'}
+                      title={'Button'}
+                      />
+                    <View style={{ height: 5 }} />
+                    <Button
+                      {...{ [value]: true }}
+                      size={'md'}
+                      theme={'success'}
+                      title={'Button'}
+                      />
+                    <View style={{ height: 5 }} />
+                    <Button
+                      {...{ [value]: true }}
+                      size={'md'}
+                      theme={'danger'}
+                      title={'Button'}
+                      />
+                    <View style={{ height: 5 }} />
+                    <Button
+                      {...{ [value]: true }}
+                      disabled
+                      size={'md'}
+                      theme={'danger'}
+                      title={'Button'}
+                      />
+                    <View style={{ height: 5 }} />
+                  </View>
+                  <View>
+                    <Button
+                      {...{ [value]: true }}
+                      size={'lg'}
+                      title={'Button'}
+                      />
+                    <View style={{ height: 5 }} />
+                    <Button
+                      {...{ [value]: true }}
+                      size={'lg'}
+                      theme={'secondary'}
+                      title={'Button'}
+                      />
+                    <View style={{ height: 5 }} />
+                    <Button
+                      {...{ [value]: true }}
+                      size={'lg'}
+                      theme={'success'}
+                      title={'Button'}
+                      />
+                    <View style={{ height: 5 }} />
+                    <Button
+                      {...{ [value]: true }}
+                      size={'lg'}
+                      theme={'danger'}
+                      title={'Button'}
+                      />
+                    <View style={{ height: 5 }} />
+                    <Button
+                      {...{ [value]: true }}
+                      disabled
+                      size={'lg'}
+                      theme={'danger'}
+                      title={'Button'}
+                      />
+                    <View style={{ height: 5 }} />
+                  </View>
+                </View>
+              </View>
+            )
+          })
+        }
       </ScrollView>
     );
   }
@@ -116,77 +335,7 @@ class ButtonPage extends Component {
 
 // define your styles
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: 20,
-    marginRight: 20,
-  },
-  textStyle: {
-    color: 'white'
-  },
-  textStyle6: {
-    color: '#8e44ad',
-    fontFamily: 'Avenir',
-    fontWeight: 'bold'
-  },
-  buttonStylePressing: {
-    borderColor: 'red',
-    backgroundColor: 'red'
-  },
-  buttonStyle: {
-    borderColor: '#f39c12',
-    backgroundColor: '#f1c40f'
-  },
-  buttonStyle1: {
-    borderColor: '#d35400',
-    backgroundColor: '#e98b39'
-  },
-  buttonStyle2: {
-    borderColor: '#c0392b',
-    backgroundColor: '#e74c3c'
-  },
-  buttonStyle3: {
-    borderColor: '#16a085',
-    backgroundColor: '#1abc9c'
-  },
-  buttonStyle4: {
-    borderColor: '#27ae60',
-    backgroundColor: '#2ecc71'
-  },
-  buttonStyle5: {
-    borderColor: '#2980b9',
-    backgroundColor: '#3498db'
-  },
-  buttonStyle6: {
-    borderColor: '#8e44ad',
-    backgroundColor: '#9b59b6'
-  },
-  buttonStyle7: {
-    borderColor: '#8e44ad',
-    backgroundColor: 'white',
-    borderRadius: 0,
-    borderWidth: 3,
-  },
-  buttonStyle8: {
-    backgroundColor: 'white',
-    borderColor: '#333',
-    borderWidth: 2,
-    borderRadius: 22,
-  },
-  textStyle8: {
-    width: 200,
-    fontFamily: 'Avenir Next',
-    fontWeight: '500',
-    color: '#333',
-  },
-  customViewStyle: {
-    width: 120,
-    height: 40,
-    alignItems: 'center',
-    flexDirection: 'row',
-  }
+
 });
 
 //make this component available to the app
