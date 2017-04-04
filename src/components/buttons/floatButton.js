@@ -1,6 +1,6 @@
 import React from 'react'
 import withButton from './withButton'
-import Icon from '../../components/icon'
+import Icon from '../icon'
 
 const FloatButton = ({ icon, iconStyle }) => (
   <Icon {...iconStyle} name={icon} />

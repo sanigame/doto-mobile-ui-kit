@@ -1,6 +1,6 @@
 import React from 'react'
 import withButton from './withButton'
-import Icon from '../../components/icon'
+import Icon from '../icon'
 
 const IconButton = (props) => {
   const { icon, iconStyle, getTheme } = props
