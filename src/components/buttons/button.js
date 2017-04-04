@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
-import { ButtonContainer } from '../../containers';
+import withButton from './withButton';
 import Icon from '../icon'
 
 const styles = StyleSheet.create({
@@ -94,4 +94,4 @@ button.propTypes = {
   textStyle: React.PropTypes.array,
 }
 
-export default ButtonContainer()(button)
+export default withButton()(button)
