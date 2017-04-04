@@ -1,6 +1,7 @@
 //import liraries
 import React, { Component } from 'react';
 import { ScrollView, StyleSheet, Text, View, Platform } from 'react-native';
+import { theme } from '../themes/theme';
 import { Button } from '../containers';
 
 // create a component
@@ -20,90 +21,95 @@ class ButtonPage extends Component {
     }
 
     return (
-      <View style={styles.container}>
-        <Button
-          background={(Platform.OS === 'android') ? TouchableNativeFeedback.Ripple('#f39c12', true) : null}
-          style={styles.buttonStyle} textStyle={styles.textStyle}
-          onPress={() => {
-            console.log('world!')
-          }}>
-          Hello
+      <ScrollView>
+        <View style={styles.container}>
+          <Button>
+            Hello
+          </Button>
+          <Button
+            size="xs"
+            theme={theme.primary}
+            onPress={() => {console.log('world!')}}>
+            Hello
+          </Button>
+          <Button
+            size="sm"
+            theme={theme.primary}
+            onPress={() => {console.log('world!')}}>
+            Hello
+          </Button>
+          <Button
+            size="md"
+            theme={theme.primary}
+            onPress={() => {console.log('world!')}}>
+            Hello
+          </Button>
+          <Button
+            size="lg"
+            theme={theme.primary}
+            onPress={() => {console.log('world!')}}>
+            Hello
+          </Button>
+          <Button
+            style={styles.buttonStyle5} textStyle={styles.textStyle}
+            onPress={() => {
+              console.log('world!')
+            }}>
+            Hello
+          </Button>
+          <Button
+            style={styles.buttonStyle5} textStyle={styles.textStyle}
+            onPress={() => {
+              console.log('world!')
+            }}>
+            Hello
         </Button>
-        <Button
-          textStyle={styles.textStyle}
-          style={onPressProps}
-          activeOpacity={1}
-          isOnPressing={this.state.isOnPressing}
-          onPressIn={() => console.log('onPressIn')}
-          onPressOut={() => console.log('onPressOut')}>
-          Hello
-        </Button>
-        <Button
-          style={styles.buttonStyle2} textStyle={styles.textStyle}
-          onPress={() => {
-            console.log('world!')
-          }}>
-          Hello
-        </Button>
-        <Button
-          style={styles.buttonStyle3} textStyle={styles.textStyle}
-          onPress={() => {
-            console.log('world!')
-          }}>
-          Hello
-        </Button>
-        <Button
-          style={styles.buttonStyle4} textStyle={styles.textStyle}
-          onPress={() => {
-            console.log('world!')
-          }}>
-          Hello
-        </Button>
-        <Button
-          style={styles.buttonStyle5} textStyle={styles.textStyle}
-          onPress={() => {
-            console.log('world!')
-          }}>
-          Hello
-        </Button>
-        <Button
-          style={styles.buttonStyle6} textStyle={styles.textStyle}
-          onPress={() => {
-            console.log('world!')
-          }}>
-          Hello
-        </Button>
-        <Button
-          style={styles.buttonStyle7} textStyle={styles.textStyle6}
-          onPress={() => {
-            console.log('world!')
-          }}>
-          Hello
-        </Button>
-        <Button
-          isLoading={true}
-          style={styles.buttonStyle7} textStyle={styles.textStyle6}
-          onPress={() => {
-            console.log('world!')
-          }}>
-          Hello
-        </Button>
-        <Button
-          disabledStyle={styles.buttonStyle8}
-          isDisabled={true}
-          textStyle={styles.textStyle8}>
-          Disabled
-        </Button>
-        <Button style={styles.buttonStyle8}
-          textStyle={styles.textStyle8}
-          onPress={() => console.log('world!')}>
-          <View style={styles.customViewStyle}>
-            <Text style={{textAlign: 'center', fontFamily: 'Avenir'}}>
-              Custom inner view
+          <Button
+            style={styles.buttonStyle5} textStyle={styles.textStyle}
+            onPress={() => {
+              console.log('world!')
+            }}>
+            Hello
+          </Button>
+          <Button
+            style={styles.buttonStyle6} textStyle={styles.textStyle}
+            onPress={() => {
+              console.log('world!')
+            }}>
+            Hello
+          </Button>
+          <Button
+            style={styles.buttonStyle7} textStyle={styles.textStyle6}
+            onPress={() => {
+              console.log('world!')
+            }}>
+            Hello
+          </Button>
+          <Button
+            isLoading={true}
+            style={styles.buttonStyle7} textStyle={styles.textStyle6}
+            onPress={() => {
+              console.log('world!')
+            }}>
+            Hello
+          </Button>
+          <Button
+            disabledStyle={styles.buttonStyle8}
+            isDisabled={true}
+            textStyle={styles.textStyle8}>
+            Disabled
+          </Button>
+          <Button style={styles.buttonStyle8}
+            textStyle={styles.textStyle8}
+            onPress={() => console.log('world!')}>
+            <View style={styles.customViewStyle}>
+              <Text style={{ textAlign: 'center', fontFamily: 'Avenir' }}>
+                Custom inner view
             </Text>
-          </View>
-        </Button>
-      </View>
+            </View>
+          </Button>
+        </View>
+      </ScrollView>
     );
   }
 }

@@ -10,8 +10,8 @@ import {
   Platform
 } from 'react-native';
 import isEqual from 'lodash.isequal';
+import { buttonSize } from '../../themes/button';
 
-// create a component
 class Button extends Component {
 
   static isAndroid = Platform.OS === 'android'
@@ -40,13 +40,18 @@ class Button extends Component {
     background: (TouchableNativeFeedback.propTypes) ? TouchableNativeFeedback.propTypes.background : PropTypes.any,
   }
 
+  static defaultProps = {
+    theme: {},
+    size: 'lg'
+  }
+
   _renderChildren() {
     let childElements = [];
     React.Children.forEach(this.props.children, (item) => {
       if (typeof item === 'string' || typeof item === 'number') {
         const element = (
           <Text
-            style={[styles.textButton, this.props.textStyle]}
+            style={[styles.textButton, this.props.textStyle, buttonSize[this.props.size].text, this.props.theme.text]}
             allowFontScaling={this.props.allowFontScaling}
             key={item}>
             {item}
@@ -89,6 +94,7 @@ class Button extends Component {
         </View>
       );
     }
+
     // Extract Touchable props
     let touchableProps = {
       accessibilityLabel: this.props.accessibilityLabel,
@@ -101,13 +107,14 @@ class Button extends Component {
       delayPressIn: this.props.delayPressIn,
       delayPressOut: this.props.delayPressOut,
     };
+    
     if (Button.isAndroid) {
       touchableProps = Object.assign(touchableProps, {
         background: this.props.background || TouchableNativeFeedback.SelectableBackground()
       });
       return (
         <TouchableNativeFeedback {...touchableProps}>
-          <View style={[styles.button, this.props.style]}>
+          <View style={[styles.button, this.props.style, buttonSize[this.props.size].button, this.props.theme.color]}>
             {this._renderInnerText()}
           </View>
         </TouchableNativeFeedback>
@@ -115,7 +122,7 @@ class Button extends Component {
     } else {
       return (
         <TouchableOpacity {...touchableProps}
-          style={[styles.button, this.props.style]}>
+          style={[styles.button, this.props.style, buttonSize[this.props.size].button, this.props.theme.color]}>
           {this._renderInnerText()}
         </TouchableOpacity>
       );
