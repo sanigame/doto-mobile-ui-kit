@@ -9,10 +9,10 @@ import {
 
 const RouterComponent = () => {
   return (
-    <Router style={{marginTop: 24}} sceneStyle={{ marginTop: 54 }}>
+    <Router sceneStyle={{ marginTop: 70 }}>
       <Scene key="home" component={HomePage} title="Home" />
       <Scene key="colors" component={ColorPage} title="Colors" />
-      <Scene key="buttons" component={ButtonPage} title="Buttons"/>
+      <Scene key="buttons" component={ButtonPage} title="Buttons" />
       <Scene key="examples" component={ExamplesPage} title="Examples" initial />
     </Router>
   );

@@ -1,2 +1,2 @@
-export { default as ButtonContainer } from './button/buttonContainer'
+export { default as Button } from './button/button'
 export { default as Home } from './home'

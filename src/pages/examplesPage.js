@@ -1,7 +1,7 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Button } from '../components'
+import { Button } from '../app';
 import { Icon } from '../../lib'
 
 // create a component
@@ -9,13 +9,7 @@ class ExamplesPage extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button
-          default
-          block
-          dark={true}
-          size={'lg'}
-          title={'Button'}
-          onPress={() => alert('ok')} />
+        <Button>test</Button>
         <Icon name="facebook" />
         <Icon name="personBlack" />
       </View>

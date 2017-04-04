@@ -1,1 +1,1 @@
-{"version":3,"sources":["../src/app.js"],"names":["Button","Icon"],"mappings":"+LAASA,M,iGAAQC,I","file":"index.js","sourcesContent":["export { Button, Icon } from './components'"]}
+{"version":3,"sources":["../src/app.js"],"names":["Icon","Button"],"mappings":"6LAASA,I;;AAEAC,M","file":"index.js","sourcesContent":["export { Icon } from './components'\n//export { Color } from './themes/colors'\nexport { Button } from './containers'"]}
