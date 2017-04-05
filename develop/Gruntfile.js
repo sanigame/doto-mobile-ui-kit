@@ -12,38 +12,38 @@ module.exports = function (grunt) {
       dist: {
         files: [
           {
-            'lib/index.js': 'src/app.js'
+            '../lib/index.js': 'src/app.js'
           },
           {
             expand: true,
             cwd: 'src/containers/',
             src: ['**/*.js'],
-            dest: 'lib/containers/'
+            dest: '../lib/containers/'
           },
           {
             expand: true,
             cwd: 'src/components/',
             src: ['**/*.js'],
-            dest: 'lib/components/'
+            dest: '../lib/components/'
           },
           {
             expand: true,
             cwd: 'src/themes/',
             src: ['**/*.js'],
-            dest: 'lib/themes/'
+            dest: '../lib/themes/'
           }
         ]
       }
     },
     clean: {
-      folder: ['lib/**/']
+      folder: ['../lib/**/']
     },
     copy: {
       main: {
         expand: true,
         cwd: 'src/assets/',
         src: '**',
-        dest: 'lib/assets/',
+        dest: '../lib/assets/',
       },
     },
   });
