@@ -2,6 +2,7 @@ module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-babel')
   grunt.loadNpmTasks('grunt-contrib-clean')
+  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy')
 
   grunt.initConfig({
@@ -46,7 +47,23 @@ module.exports = function (grunt) {
         dest: '../lib/assets/',
       },
     },
+    concat: {
+      options: {
+        sourceMap: true,
+        sourceMapStyle: 'link',
+      },
+      js: {
+        src: [
+          'src/app.js',
+          'src/containers/**/*.js',
+          'src/components/**/*.js',
+          'src/themes/**/*.js'
+        ],
+        dest: '../lib/script.js'
+      }
+    },
   });
 
-  grunt.registerTask('default', ['clean', 'babel', 'copy'])
+  //grunt.registerTask('default', ['clean', 'babel', 'copy'])
+  grunt.registerTask('default', ['concat'])
 };
